@@ -1,3 +1,6 @@
+.data
+node_modu
+
 build/
 yarn.lock
 package-lock.json

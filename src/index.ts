@@ -1,7 +1,13 @@
-import { init } from "./app.init"
+import { Expresss } from './express'
+import { Sockets } from './sockets'
+import { Redis } from './redis'
+import { Mongo } from './mongo'
 
-// Main bootstrapping function
-void async function bootstrap(){
-    init()
+void async function main() {
+    let server = await Expresss.getServer()
+    let sockets = await Sockets.getServer(server)
+    let redis = await Redis.getClient()
+    let db = await Mongo.getDb()
+
+    console.log('Ready to go')
 }()
-
