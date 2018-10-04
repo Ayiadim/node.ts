@@ -1,10 +1,22 @@
 default: build up
 
 build:
-	docker-compose build
+	cd .build && docker-compose -f prod.docker-compose.yml build
 
 up:
-	docker-compose up
+	cd .build && docker-compose -f prod.docker-compose.yml up
+
+upd:
+	cd .build && docker-compose -f prod.docker-compose.yml up -d
 
 clean:
-	docker-compose down --rmi all
+	cd .build && docker-compose -f prod.docker-compose.yml down --rmi all
+	cd .build && docker-compose -f dev.docker-compose.yml down --rmi all
+
+dev: dev-build dev-up
+
+dev-build:
+	cd .build && docker-compose -f dev.docker-compose.yml build
+
+dev-up:
+	cd .build && docker-compose -f dev.docker-compose.yml up

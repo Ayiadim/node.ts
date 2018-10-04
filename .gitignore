@@ -1,5 +1,7 @@
+dist
 .data
-node_modu
+**/node_modules
+node_modules
 
 build/
 yarn.lock
