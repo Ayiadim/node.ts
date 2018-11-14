@@ -1,1 +1,1 @@
-export * from './index.handler'
+export * from './index.all.handler'
